@@ -8,7 +8,7 @@ export const Route = createFileRoute('/')({
 function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <Button>Clique Aqui</Button>
+      <Button>clique aqui</Button>
     </div>
   );
 }
