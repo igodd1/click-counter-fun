@@ -77,11 +77,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Clínica Odontológica Dr. Lucas Silva | Odontologia Especializada" },
-      { name: "description", content: "Clínica odontológica com especialista em implantes, lentes de contato, clareamento e aparelhos invisíveis." },
-      { name: "author", content: "Dr. Lucas Silva" },
-      { property: "og:title", content: "Clínica Odontológica Dr. Lucas Silva" },
-      { property: "og:description", content: "Agende sua avaliação e transforme seu sorriso." }
+      { title: "Lovable App" },
+      { name: "description", content: "Lovable Generated Project" },
+      { name: "author", content: "Lovable" },
+      { property: "og:title", content: "Lovable App" },
+      { property: "og:description", content: "Lovable Generated Project" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
@@ -102,7 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
