@@ -30,7 +30,7 @@ function Index() {
           {count}
         </p>
         <Button size="lg" onClick={() => setCount((c) => c + 1)}>
-          Clique para contar
+          teste
         </Button>
       </section>
     </main>
