@@ -1,24 +1,38 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Contador Simples" },
+      { name: "description", content: "Um contador interativo — clique no botão para incrementar." },
+      { property: "og:title", content: "Contador Simples" },
+      { property: "og:description", content: "Um contador interativo — clique no botão para incrementar." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const [count, setCount] = useState(0);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="flex min-h-screen items-center justify-center bg-background px-4">
+      <section className="flex flex-col items-center gap-8 rounded-2xl border border-border bg-card p-12 shadow-sm">
+        <h1 className="text-2xl font-semibold text-card-foreground">Contador</h1>
+        <p
+          className="text-7xl font-bold tabular-nums text-primary"
+          aria-live="polite"
+        >
+          {count}
+        </p>
+        <Button size="lg" onClick={() => setCount((c) => c + 1)}>
+          Clique para contar
+        </Button>
+      </section>
+    </main>
   );
 }
