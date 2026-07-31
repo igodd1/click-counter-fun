@@ -26,7 +26,7 @@ function Home() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white border-b border-slate-200">
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/50">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2 font-bold text-xl text-sky-900">
             <Smile className="w-6 h-6 text-sky-600" />
@@ -58,7 +58,7 @@ function Home() {
       </header>
 
       {/* Hero */}
-      <section className="py-16 px-4 max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+      <section className="py-16 px-4 max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center animate-in fade-in slide-in-from-bottom-4 duration-1000">
         <div className="space-y-4">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold bg-sky-100 text-sky-800 px-3 py-1 rounded-full">
             <Sparkles className="w-3.5 h-3.5 text-sky-600" /> Odontologia Especializada & Estética
@@ -80,10 +80,13 @@ function Home() {
             </Button>
           </div>
         </div>
-        <div className="bg-sky-100/70 rounded-3xl h-64 md:h-80 flex flex-col items-center justify-center border border-sky-200 p-6 text-center shadow-inner">
-          <Smile className="w-20 h-20 text-sky-600 mb-2" />
-          <p className="text-sky-900 font-bold text-lg">Consultório Odontológico</p>
-          <p className="text-sky-700 text-xs mt-1">Ambiente climatizado e tecnologia de ponta</p>
+        <div className="relative group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-sky-400 to-blue-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+          <div className="relative bg-white rounded-3xl h-64 md:h-80 flex flex-col items-center justify-center border border-sky-100 p-6 text-center shadow-xl">
+            <Smile className="w-20 h-20 text-sky-600 mb-2 animate-pulse" />
+            <p className="text-sky-900 font-bold text-lg">Consultório Odontológico</p>
+            <p className="text-sky-700 text-xs mt-1 font-medium">Ambiente climatizado e tecnologia de ponta</p>
+          </div>
         </div>
       </section>
 
@@ -120,7 +123,7 @@ function Home() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {procedures.map((p, i) => (
-            <div key={i} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2 hover:shadow-md transition-shadow">
+            <div key={i} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="w-8 h-8 rounded-lg bg-sky-100 flex items-center justify-center text-sky-600 font-bold text-sm mb-3">
                 0{i + 1}
               </div>
@@ -197,7 +200,7 @@ function Home() {
               </Button>
             </div>
           ) : (
-            <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-3 text-left bg-white p-6 rounded-2xl shadow-xl text-slate-800">
+            <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-4 text-left bg-white p-8 rounded-3xl shadow-2xl text-slate-800 border border-sky-100">
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">Nome Completo</label>
                 <input type="text" required placeholder="Ex: Ana Maria" className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-sky-600" />
@@ -225,7 +228,7 @@ function Home() {
         </div>
       </section>
 
-      <footer className="py-6 text-center text-xs text-slate-400 bg-slate-950 border-t border-slate-800">
+      <footer className="py-10 text-center text-xs text-slate-400 bg-slate-950 border-t border-slate-800">
         <p>© {new Date().getFullYear()} OdontoExcellence - CRO-SP 123.456. Todos os direitos reservados.</p>
       </footer>
     </div>
