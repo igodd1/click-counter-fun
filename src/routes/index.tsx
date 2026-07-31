@@ -76,7 +76,7 @@ function Home() {
               </a>
             </Button>
             <Button variant="outline" asChild className="rounded-full border-sky-200 text-sky-900 hover:bg-sky-50">
-              <a href="#procedimentos">Ver Serviços</a>
+              <a href="#procedimentos">Serviços</a>
             </Button>
           </div>
         </div>
