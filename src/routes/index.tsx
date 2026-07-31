@@ -72,7 +72,7 @@ function Home() {
           <div className="flex flex-wrap gap-3 pt-2">
             <Button asChild className="bg-sky-600 hover:bg-sky-700 text-white rounded-full px-6">
               <a href="#contato" className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" /> Agendar Avaliação
+                <Calendar className="w-4 h-4" /> Contate nos
               </a>
             </Button>
             <Button variant="outline" asChild className="rounded-full border-sky-200 text-sky-900 hover:bg-sky-50">
