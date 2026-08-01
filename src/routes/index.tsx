@@ -39,7 +39,7 @@ function Home() {
             <a href="#mapa" className="hover:text-sky-600 transition-colors">Mapa</a>
             <a href="#contato" className="hover:text-sky-600 transition-colors">Contato</a>
           </nav>
-          <Button asChild size="sm" className="hidden md:inline-flex bg-sky-600 hover:bg-sky-700 text-white rounded-full px-5">
+          <Button asChild size="sm" className="hidden md:inline-flex bg-orange-500 hover:bg-orange-600 text-white rounded-full px-5">
             <a href="#contato">Agendar Consulta</a>
           </Button>
           <button className="md:hidden p-1 text-slate-700" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu">
