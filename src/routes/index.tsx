@@ -64,7 +64,7 @@ function Home() {
             <Sparkles className="w-3.5 h-3.5 text-sky-600" /> Odontologia Especializada & Estética
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
-            Seu novo sorriso começa com o cuidado que você merece.
+            Transforme sua autoestima com o sorriso dos seus sonhos.
           </h1>
           <p className="text-slate-600 leading-relaxed">
             Atendimento humanizado, tecnologia moderna e tratamentos personalizados para sua saúde e estética bucal.
