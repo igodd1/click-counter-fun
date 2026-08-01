@@ -70,7 +70,7 @@ function Home() {
             Atendimento humanizado, tecnologia moderna e tratamentos personalizados para sua saúde e estética bucal.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
-            <Button asChild className="bg-sky-600 hover:bg-sky-700 text-white rounded-full px-6">
+            <Button asChild className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-6">
               <a href="#contato" className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" /> Contate nos
               </a>
