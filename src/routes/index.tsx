@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { createFileRoute } from '@tanstack/react-router';
 import { Button } from '@/components/ui/button';
-import { Phone, MapPin, Clock, Star, CheckCircle2, ShieldCheck, Sparkles, Smile, Calendar, Send, Menu, X } from 'lucide-react';
+import { Phone, MapPin, Clock, Star, CheckCircle2, ShieldCheck, Scale, Gavel, Briefcase, Award, FileText, Building2, Calendar, Send, Menu, X } from 'lucide-react';
 
 export const Route = createFileRoute('/')({
   component: Home,
@@ -11,174 +11,234 @@ function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const procedures = [
-    { title: 'Implantes Dentários', desc: 'Restauração definitiva com máxima naturalidade.' },
-    { title: 'Lentes de Contato', desc: 'Transformação do sorriso com facetas ultrafinas.' },
-    { title: 'Ortodontia', desc: 'Alinhadores invisíveis e aparelhos estéticos.' },
-    { title: 'Clareamento Dental', desc: 'Técnicas a laser e caseiras supervisionadas.' },
+  const practiceAreas = [
+    { title: 'Direito Civil & Família', desc: 'Planejamento sucessório, inventários, litígios patrimoniais e contratos de alta complexidade.' },
+    { title: 'Direito Empresarial & Compliance', desc: 'Assessoria jurídica contínua, governança corporativa, contratos sociais e fusões.' },
+    { title: 'Direito Trabalhista Patronal', desc: 'Defesa e prevenção de riscos passivos para empresas e gestão preventiva de contencioso.' },
+    { title: 'Direito Tributário & Fiscal', desc: 'Planejamento tributário estratégico, contencioso administrativo e recuperação de créditos.' },
   ];
 
   const testimonials = [
-    { name: 'Mariana Silva', text: 'O atendimento foi incrível e o resultado do meu sorriso ficou super natural!' },
-    { name: 'Carlos Eduardo', text: 'Tratamento sem dor, instalações modernas e equipe atenciosa do início ao fim.' },
+    { name: 'Dr. Roberto Mendes - CEO TechCorp', text: 'A atuação preventiva e estratégica do escritório evitou passivos significativos para nossa empresa.' },
+    { name: 'Helena Cavalcanti', text: 'Atendimento impecável e transparente. Conduziram nosso processo de inventário com total agilidade e sigilo.' },
   ];
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/50">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-2 font-bold text-xl text-sky-900">
-            <Smile className="w-6 h-6 text-sky-600" />
-            <span>OdontoExcellence</span>
+      <header className="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div className="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+          <div className="flex items-center gap-2.5 font-bold text-xl text-amber-400 tracking-tight">
+            <Scale className="w-7 h-7 text-amber-500" />
+            <span className="text-slate-100">Vance & Associados <span className="text-xs font-normal text-amber-400 block -mt-1 tracking-wider uppercase">Advocacia & Consultoria</span></span>
           </div>
-          <nav className="hidden md:flex gap-6 text-sm font-medium text-slate-600">
-            <a href="#sobre" className="hover:text-sky-600 transition-colors">Sobre</a>
-            <a href="#procedimentos" className="hover:text-sky-600 transition-colors">Procedimentos</a>
-            <a href="#depoimentos" className="hover:text-sky-600 transition-colors">Depoimentos</a>
-            <a href="#mapa" className="hover:text-sky-600 transition-colors">Mapa</a>
-            <a href="#contato" className="hover:text-sky-600 transition-colors">Contato</a>
+          <nav className="hidden md:flex gap-6 text-sm font-medium text-slate-300">
+            <a href="#sobre" className="hover:text-amber-400 transition-colors">O Escritório</a>
+            <a href="#areas" className="hover:text-amber-400 transition-colors">Áreas de Atuação</a>
+            <a href="#diferenciais" className="hover:text-amber-400 transition-colors">Diferenciais</a>
+            <a href="#depoimentos" className="hover:text-amber-400 transition-colors">Avaliações</a>
+            <a href="#contato" className="hover:text-amber-400 transition-colors">Contato</a>
           </nav>
-          <Button asChild size="sm" className="hidden md:inline-flex bg-orange-500 hover:bg-orange-600 text-white rounded-full px-5">
-            <a href="#contato">Agendar Consulta</a>
+          <Button asChild size="sm" className="hidden md:inline-flex bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold rounded-md px-5 shadow-md">
+            <a href="#contato">Agendar Consulta Jurídica</a>
           </Button>
-          <button className="md:hidden p-1 text-slate-700" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu">
+          <button className="md:hidden p-1 text-slate-200" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu">
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
         {isMenuOpen && (
-          <div className="md:hidden p-4 bg-white border-t border-slate-200 flex flex-col gap-3 text-sm font-medium">
-            <a href="#sobre" onClick={() => setIsMenuOpen(false)}>Sobre</a>
-            <a href="#procedimentos" onClick={() => setIsMenuOpen(false)}>Procedimentos</a>
-            <a href="#depoimentos" onClick={() => setIsMenuOpen(false)}>Depoimentos</a>
-            <a href="#mapa" onClick={() => setIsMenuOpen(false)}>Mapa</a>
+          <div className="md:hidden p-4 bg-slate-900 border-t border-slate-800 flex flex-col gap-3 text-sm font-medium text-slate-200">
+            <a href="#sobre" onClick={() => setIsMenuOpen(false)}>O Escritório</a>
+            <a href="#areas" onClick={() => setIsMenuOpen(false)}>Áreas de Atuação</a>
+            <a href="#diferenciais" onClick={() => setIsMenuOpen(false)}>Diferenciais</a>
+            <a href="#depoimentos" onClick={() => setIsMenuOpen(false)}>Avaliações</a>
             <a href="#contato" onClick={() => setIsMenuOpen(false)}>Contato</a>
           </div>
         )}
       </header>
 
       {/* Hero */}
-      <section className="py-16 px-4 max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center animate-in fade-in slide-in-from-bottom-4 duration-1000">
-        <div className="space-y-4">
-          <span className="inline-flex items-center gap-1.5 text-xs font-semibold bg-sky-100 text-sky-800 px-3 py-1 rounded-full">
-            <Sparkles className="w-3.5 h-3.5 text-sky-600" /> Odontologia Especializada & Estética
+      <section className="py-20 px-4 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center animate-in fade-in slide-in-from-bottom-4 duration-1000">
+        <div className="space-y-5">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3.5 py-1.5 rounded-full">
+            <Gavel className="w-4 h-4 text-amber-400" /> Advocacia de Alta Performance & Consultoria
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
-            Transforme sua autoestima com o sorriso dos seus sonhos.
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-100 leading-tight tracking-tight">
+            Defesa Estratégica & Soluções Jurídicas de Excelência.
           </h1>
-          <p className="text-slate-600 leading-relaxed">
-            Atendimento humanizado, tecnologia moderna e tratamentos personalizados para sua saúde e estética bucal.
+          <p className="text-slate-300 leading-relaxed text-base">
+            Protegendo patrimônios, empresas e direitos individuais com máxima dedicação ética, rigor técnico e foco em resultados resolutivos.
           </p>
-          <div className="flex flex-wrap gap-3 pt-2">
-            <Button asChild className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-6">
+          <div className="flex flex-wrap gap-4 pt-2">
+            <Button asChild className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-md px-6 py-6 shadow-lg text-sm">
               <a href="#contato" className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" /> Contate nos
+                <Calendar className="w-4 h-4" /> Agendar Consulta
               </a>
             </Button>
-            <Button variant="outline" asChild className="rounded-full border-sky-200 text-sky-900 hover:bg-sky-50">
-              <a href="#procedimentos">Serviços</a>
+            <Button variant="outline" asChild className="rounded-md border-slate-700 bg-slate-900 text-slate-200 hover:bg-slate-800 hover:text-amber-400 px-6 py-6 text-sm">
+              <a href="#areas">Conhecer Atuação</a>
             </Button>
           </div>
         </div>
         <div className="relative group">
-          <div className="absolute -inset-1 bg-gradient-to-r from-sky-400 to-blue-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-          <div className="relative bg-white rounded-3xl h-64 md:h-80 flex flex-col items-center justify-center border border-sky-100 p-6 text-center shadow-xl">
-            <Smile className="w-20 h-20 text-sky-600 mb-2 animate-pulse" />
-            <p className="text-sky-900 font-bold text-lg">Consultório Odontológico</p>
-            <p className="text-sky-700 text-xs mt-1 font-medium">Ambiente climatizado e tecnologia de ponta</p>
+          <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/30 to-amber-700/20 rounded-2xl blur-lg opacity-40 group-hover:opacity-70 transition duration-1000"></div>
+          <div className="relative bg-slate-900/90 rounded-2xl p-8 border border-slate-800 text-center shadow-2xl space-y-4">
+            <div className="w-20 h-20 mx-auto rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+              <Scale className="w-10 h-10" />
+            </div>
+            <div>
+              <p className="text-amber-400 font-bold text-xl">Vance & Associados</p>
+              <p className="text-slate-400 text-xs mt-1 font-medium tracking-wide">SOCIEDADE DE ADVOGADOS • OAB/SP 184.920</p>
+            </div>
+            <div className="grid grid-cols-2 gap-3 pt-4 border-t border-slate-800 text-left">
+              <div className="bg-slate-950/60 p-3 rounded-lg border border-slate-800">
+                <p className="text-amber-400 font-bold text-lg">18+ Anos</p>
+                <p className="text-slate-400 text-xs">de Prática Jurídica</p>
+              </div>
+              <div className="bg-slate-950/60 p-3 rounded-lg border border-slate-800">
+                <p className="text-amber-400 font-bold text-lg">98.4%</p>
+                <p className="text-slate-400 text-xs">Éxito Contencioso</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Sobre o Dentista */}
-      <section id="sobre" className="py-16 bg-white border-y border-slate-200">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-          <div className="bg-slate-100 rounded-2xl h-64 md:h-80 flex flex-col items-center justify-center border border-slate-200 p-6 text-center">
-            <ShieldCheck className="w-16 h-16 text-sky-600 mb-2" />
-            <span className="font-bold text-slate-800">Excelência Técnica</span>
-            <span className="text-xs text-slate-500 mt-1">Mais de 15 anos transformando sorrisos</span>
-          </div>
-          <div className="space-y-4">
-            <span className="text-xs font-semibold bg-sky-100 text-sky-800 px-3 py-1 rounded-full">Sobre o Profissional</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Dr. Lucas Mendes</h2>
-            <p className="text-xs font-semibold text-sky-600">CRO-SP 123.456 | Cirurgião-Dentista</p>
-            <p className="text-slate-600 text-sm leading-relaxed">
-              Especialista em Reabilitação Oral e Ortodontia, o Dr. Lucas Mendes dedica-se a devolver a estética e funcionalidade do sorriso através de tratamentos humanizados e indolores.
+      {/* Sobre o Escritório / Advogado Principal */}
+      <section id="sobre" className="py-20 bg-slate-900/60 border-y border-slate-800">
+        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+          <div className="bg-slate-900 rounded-2xl p-8 border border-slate-800 shadow-xl space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                <Award className="w-7 h-7" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-slate-100">Dr. Alexandre Vance</h3>
+                <p className="text-amber-400 text-xs font-semibold">Sócio-Fundador | OAB/SP 184.920</p>
+              </div>
+            </div>
+            <p className="text-slate-300 text-sm leading-relaxed">
+              Mestre em Direito Processual Civil pela USP, atuando há quase duas décadas na solução de conflitos patrimoniais e defesa corporativa para grandes empresas e famílias.
             </p>
-            <ul className="space-y-2 text-sm text-slate-700">
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-sky-600 flex-shrink-0" /> Especialista em Implantodontia e Estética</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-sky-600 flex-shrink-0" /> Membro da Associação Brasileira de Odontologia</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-sky-600 flex-shrink-0" /> Mais de 5.000 pacientes atendidos com satisfação</li>
+            <div className="space-y-3 pt-2">
+              <div className="flex items-center gap-3 text-slate-200 text-xs">
+                <ShieldCheck className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                <span>Especialista em Gestão de Crises e Litígios Estratégicos</span>
+              </div>
+              <div className="flex items-center gap-3 text-slate-200 text-xs">
+                <Briefcase className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                <span>Atuação em Tribunais Superiores (STJ e STF)</span>
+              </div>
+              <div className="flex items-center gap-3 text-slate-200 text-xs">
+                <FileText className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                <span>Membro Efetivo do Instituto dos Advogados do Brasil</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-5">
+            <span className="text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full">Tradição & Inovação</span>
+            <h2 className="text-2xl sm:text-4xl font-bold text-slate-100 leading-snug">Compromisso inarredável com a justiça e com o interesse do cliente.</h2>
+            <p className="text-slate-300 text-sm leading-relaxed">
+              Nosso escritório alia tradição e o mais alto rigor técnico à agilidade moderna. Oferecemos atendimento exclusivo e humanizado, tratando cada caso de forma artesanal e estratégica.
+            </p>
+            <ul className="space-y-3 text-sm text-slate-300">
+              <li className="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" /> Sigilo absoluto e confidencialidade rigorosa</li>
+              <li className="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" /> Relatórios transparentes e acompanhamento em tempo real</li>
+              <li className="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" /> Estrutura multidisciplinar para demandas complexas</li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* Procedimentos */}
-      <section id="procedimentos" className="py-16 max-w-6xl mx-auto px-4">
-        <div className="text-center mb-10 space-y-2">
-          <span className="text-xs font-semibold bg-sky-100 text-sky-800 px-3 py-1 rounded-full">Especialidades</span>
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Nossos Procedimentos</h2>
-          <p className="text-slate-600 text-sm max-w-lg mx-auto">Tratamentos completos para a sua saúde e harmonia bucal.</p>
+      {/* Áreas de Atuação */}
+      <section id="areas" className="py-20 max-w-6xl mx-auto px-4">
+        <div className="text-center mb-12 space-y-3">
+          <span className="text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full">Especialização</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-100">Áreas de Atuação Jurídica</h2>
+          <p className="text-slate-400 text-sm max-w-xl mx-auto">Soluções jurídicas preventivas, consultivas e litigiosas sob medida.</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {procedures.map((p, i) => (
-            <div key={i} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div className="w-8 h-8 rounded-lg bg-sky-100 flex items-center justify-center text-sky-600 font-bold text-sm mb-3">
+          {practiceAreas.map((area, i) => (
+            <div key={i} className="bg-slate-900/80 p-6 rounded-xl border border-slate-800 space-y-3 hover:border-amber-500/50 hover:-translate-y-1 transition-all duration-300 shadow-md">
+              <div className="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-sm mb-4">
                 0{i + 1}
               </div>
-              <h3 className="font-bold text-sky-900 text-lg">{p.title}</h3>
-              <p className="text-slate-600 text-xs leading-relaxed">{p.desc}</p>
+              <h3 className="font-bold text-slate-100 text-lg">{area.title}</h3>
+              <p className="text-slate-400 text-xs leading-relaxed">{area.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Depoimentos */}
-      <section id="depoimentos" className="py-16 bg-white border-y border-slate-200">
+      {/* Diferenciais */}
+      <section id="diferenciais" className="py-16 bg-slate-900/40 border-y border-slate-800">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-10 space-y-2">
-            <span className="text-xs font-semibold bg-sky-100 text-sky-800 px-3 py-1 rounded-full">Avaliações</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">O que dizem nossos pacientes</h2>
+          <div className="grid md:grid-cols-3 gap-6 text-center">
+            <div className="p-6 bg-slate-900 rounded-xl border border-slate-800 space-y-2">
+              <Building2 className="w-8 h-8 text-amber-400 mx-auto" />
+              <h4 className="font-bold text-slate-100">Estrutura Corporativa</h4>
+              <p className="text-xs text-slate-400">Salas de reunião privativas no coração do centro financeiro de SP.</p>
+            </div>
+            <div className="p-6 bg-slate-900 rounded-xl border border-slate-800 space-y-2">
+              <Gavel className="w-8 h-8 text-amber-400 mx-auto" />
+              <h4 className="font-bold text-slate-100">Contencioso de Alto Impacto</h4>
+              <p className="text-xs text-slate-400">Atuação incisiva na defesa de teses jurídicas nos mais altos tribunais.</p>
+            </div>
+            <div className="p-6 bg-slate-900 rounded-xl border border-slate-800 space-y-2">
+              <FileText className="w-8 h-8 text-amber-400 mx-auto" />
+              <h4 className="font-bold text-slate-100">Consultoria Preventiva</h4>
+              <p className="text-xs text-slate-400">Análise minuciosa de riscos para evitar litígios desnecessários.</p>
+            </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+        </div>
+      </section>
+
+      {/* Depoimentos */}
+      <section id="depoimentos" className="py-20 bg-slate-900/60 border-b border-slate-800">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12 space-y-2">
+            <span className="text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full">Reconhecimento</span>
+            <h2 className="text-3xl font-bold text-slate-100">Depoimentos dos Nossos Clientes</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {testimonials.map((t, i) => (
-              <div key={i} className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+              <div key={i} className="p-6 rounded-xl bg-slate-900 border border-slate-800 space-y-3 shadow-lg">
                 <div className="flex text-amber-400 gap-1">
                   {[...Array(5)].map((_, idx) => <Star key={idx} className="w-4 h-4 fill-amber-400" />)}
                 </div>
-                <p className="text-slate-700 italic text-sm leading-relaxed">"{t.text}"</p>
-                <p className="font-bold text-xs text-slate-900">— {t.name}</p>
+                <p className="text-slate-300 italic text-sm leading-relaxed">"{t.text}"</p>
+                <p className="font-bold text-xs text-amber-400">— {t.name}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Mapa e Localização */}
-      <section id="mapa" className="py-16 max-w-6xl mx-auto px-4">
+      {/* Localização */}
+      <section id="mapa" className="py-20 max-w-6xl mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 items-start">
-          <div className="space-y-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-            <h2 className="text-2xl font-bold text-slate-900">Localização</h2>
-            <div className="space-y-3 text-sm text-slate-600">
-              <p className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-sky-600 flex-shrink-0 mt-0.5" />
-                <span>Av. Paulista, 1000 - Sala 804<br />Bela Vista, São Paulo - SP</span>
+          <div className="space-y-4 bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-md">
+            <h2 className="text-2xl font-bold text-slate-100">Nosso Escritório</h2>
+            <div className="space-y-3 text-sm text-slate-300">
+              <p className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                <span>Av. Brigadeiro Faria Lima, 2000 - Conj. 1201<br />Itaim Bibi, São Paulo - SP</span>
               </p>
-              <p className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-sky-600 flex-shrink-0" />
-                <span>(11) 99999-8888 / (11) 3333-4444</span>
+              <p className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                <span>(11) 3045-9000 / (11) 98888-7777</span>
               </p>
-              <p className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-sky-600 flex-shrink-0" />
-                <span>Seg à Sex: 08h às 19h | Sáb: 08h às 13h</span>
+              <p className="flex items-center gap-2.5">
+                <Clock className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                <span>Seg à Sex: 09h às 18h30 (Sob agendamento)</span>
               </p>
             </div>
           </div>
-          <div className="md:col-span-2 h-72 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+          <div className="md:col-span-2 h-72 rounded-xl overflow-hidden border border-slate-800 shadow-md">
             <iframe
-              title="Mapa de Localização do Consultório"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197587029202!2d-46.6543!3d-23.5615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%201000!5e0!3m2!1wpt-BR!2sbr!4v1680000000000!5m2!1wpt-BR!2sbr"
+              title="Mapa de Localização do Escritório de Advocacia"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.402287029202!2d-46.6875!3d-23.5855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce576135293215%3A0xd59f9431f2c9776a!2sAv.%20Brig.%20Faria%20Lima%2C%202000!5e0!3m2!1wpt-BR!2sbr!4v1680000000000!5m2!1wpt-BR!2sbr"
               className="w-full h-full border-0"
               loading="lazy"
             />
@@ -186,50 +246,54 @@ function Home() {
         </div>
       </section>
 
-      {/* Contato */}
-      <section id="contato" className="py-16 bg-sky-900 text-white">
+      {/* Contato Form */}
+      <section id="contato" className="py-20 bg-slate-900 border-t border-slate-800 text-slate-100">
         <div className="max-w-xl mx-auto px-4 text-center space-y-6">
-          <h2 className="text-2xl sm:text-3xl font-bold">Agende sua Consulta</h2>
-          <p className="text-sky-100 text-sm">Preencha os dados abaixo para entrarmos em contato via WhatsApp/Telefone.</p>
+          <h2 className="text-3xl sm:text-4xl font-bold">Solicite uma Análise Preliminar</h2>
+          <p className="text-slate-400 text-sm">Preencha o formulário para agendar uma consulta sigilosa com nossos advogados.</p>
           {submitted ? (
-            <div className="p-6 bg-emerald-600 text-white rounded-2xl text-sm font-medium space-y-2 shadow-lg">
-              <p className="font-bold text-base">Solicitação enviada com sucesso!</p>
-              <p className="text-emerald-100 text-xs">Nossa equipe entrará em contato em até 2 horas úteis.</p>
-              <Button onClick={() => setSubmitted(false)} variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/20 text-xs mt-2">
+            <div className="p-6 bg-emerald-950/80 border border-emerald-600/50 text-emerald-200 rounded-xl text-sm font-medium space-y-2 shadow-lg">
+              <p className="font-bold text-base text-emerald-400">Solicitação enviada com sucesso!</p>
+              <p className="text-emerald-300 text-xs">Nossa equipe entrará em contato em até 2 horas úteis com total sigilo.</p>
+              <Button onClick={() => setSubmitted(false)} variant="outline" className="bg-emerald-900/40 hover:bg-emerald-900/80 text-emerald-100 border-emerald-500/30 text-xs mt-3">
                 Nova Solicitação
               </Button>
             </div>
           ) : (
-            <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-4 text-left bg-white p-8 rounded-3xl shadow-2xl text-slate-800 border border-sky-100">
+            <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-4 text-left bg-slate-950 p-8 rounded-2xl shadow-2xl text-slate-200 border border-slate-800">
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">Nome Completo</label>
-                <input type="text" required placeholder="Ex: Ana Maria" className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-sky-600" />
+                <label className="block text-xs font-semibold text-slate-300 mb-1">Nome Completo</label>
+                <input type="text" required placeholder="Ex: Dr. Carlos Eduardo" className="w-full p-3 border border-slate-800 rounded-md text-sm bg-slate-900 focus:outline-none focus:border-amber-500" />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">Telefone / WhatsApp</label>
-                <input type="tel" required placeholder="(11) 99999-9999" className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-sky-600" />
+                <label className="block text-xs font-semibold text-slate-300 mb-1">Telefone / WhatsApp</label>
+                <input type="tel" required placeholder="(11) 99999-9999" className="w-full p-3 border border-slate-800 rounded-md text-sm bg-slate-900 focus:outline-none focus:border-amber-500" />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">Procedimento de Interesse</label>
-                <select className="w-full p-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-sky-600">
+                <label className="block text-xs font-semibold text-slate-300 mb-1">Área de Interesse Jurídico</label>
+                <select className="w-full p-3 border border-slate-800 rounded-md text-sm bg-slate-900 text-slate-200 focus:outline-none focus:border-amber-500">
                   <option value="">Selecione...</option>
-                  <option value="implantes">Implantes Dentários</option>
-                  <option value="lentes">Lentes de Contato</option>
-                  <option value="ortodontia">Ortodontia</option>
-                  <option value="clareamento">Clareamento Dental</option>
-                  <option value="limpeza">Limpeza / Avaliação Geral</option>
+                  <option value="civil">Direito Civil & Família / Inventários</option>
+                  <option value="empresarial">Direito Empresarial & Compliance</option>
+                  <option value="trabalhista">Direito Trabalhista Patronal</option>
+                  <option value="tributario">Direito Tributário & Fiscal</option>
+                  <option value="outros">Outras Demandas Especiais</option>
                 </select>
               </div>
-              <Button type="submit" className="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 text-sm mt-2">
-                <Send className="w-4 h-4" /> Enviar Solicitação
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 mb-1">Descrição Resumida do Caso</label>
+                <textarea rows={3} placeholder="Descreva sucintamente sua dúvida ou necessidade..." className="w-full p-3 border border-slate-800 rounded-md text-sm bg-slate-900 text-slate-200 focus:outline-none focus:border-amber-500" />
+              </div>
+              <Button type="submit" className="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3.5 rounded-md flex items-center justify-center gap-2 text-sm mt-2 transition-colors">
+                <Send className="w-4 h-4" /> Enviar Mensagem Sigilosa
               </Button>
             </form>
           )}
         </div>
       </section>
 
-      <footer className="py-10 text-center text-xs text-slate-400 bg-slate-950 border-t border-slate-800">
-        <p>© {new Date().getFullYear()} OdontoExcellence - CRO-SP 123.456. Todos os direitos reservados.</p>
+      <footer className="py-10 text-center text-xs text-slate-500 bg-slate-950 border-t border-slate-900">
+        <p>© {new Date().getFullYear()} Vance & Associados Advocacia • OAB/SP 184.920. Todos os direitos reservados.</p>
       </footer>
     </div>
   );
