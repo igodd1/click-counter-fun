@@ -38,7 +38,7 @@ function Home() {
         <div className="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
           <div className="flex items-center gap-2.5 font-bold text-xl text-amber-400 tracking-tight">
             <Scale className="w-7 h-7 text-amber-500" />
-            <span className="text-slate-100">Vance & Associados <span className="text-xs font-normal text-amber-400 block -mt-1 tracking-wider uppercase">Advocacia & Consultoria</span></span>
+            <span className="text-slate-100">Lumina Estética <span className="text-xs font-normal text-amber-400 block -mt-1 tracking-wider uppercase">Beleza & Bem-Estar</span></span>
           </div>
           <nav className="hidden md:flex gap-6 text-sm font-medium text-slate-300">
             <a href="#sobre" className="hover:text-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-1.5 py-0.5 transition-colors">O Escritório</a>
@@ -48,7 +48,7 @@ function Home() {
             <a href="#contato" className="hover:text-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-1.5 py-0.5 transition-colors">Contato</a>
           </nav>
           <Button asChild size="sm" className="hidden md:inline-flex bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold rounded-md px-5 shadow-md transition-all active:scale-95 focus-visible:ring-2 focus-visible:ring-amber-400">
-            <a href="#contato">Agendar Consulta Jurídica</a>
+            <a href="#contato">Agendar Avaliação</a>
           </Button>
           <button className="md:hidden p-2.5 rounded-lg hover:bg-slate-800 text-slate-200 min-w-[44px] min-h-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu de Navegação">
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -72,19 +72,19 @@ function Home() {
             <Gavel className="w-4 h-4 text-amber-400" /> Advocacia de Alta Performance & Consultoria
           </span>
           <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-100 leading-[1.15] tracking-tight">
-            Defesa Estratégica & Soluções Jurídicas de <span className="gold-gradient-text">Excelência</span>.
+            Beleza Autêntica & Tratamentos de <span className="gold-gradient-text">Excelência</span>.
           </h1>
           <p className="text-slate-300 leading-relaxed text-base sm:text-lg">
-            Protegendo patrimônios, empresas e direitos individuais com máxima dedicação ética, rigor técnico e foco em resultados resolutivos.
+            Realçamos sua beleza natural com tecnologia de ponta, protocolos personalizados e um ambiente de total relaxamento e cuidado.
           </p>
           <div className="flex flex-wrap gap-4 pt-3">
             <Button asChild className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-lg px-7 py-6 text-sm btn-3d shadow-lg shadow-amber-500/20">
               <a href="#contato" className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" /> Agendar Consulta
+                <Calendar className="w-4 h-4" /> Agendar Avaliação
               </a>
             </Button>
             <Button variant="outline" asChild className="rounded-lg border-amber-500/20 bg-slate-900/90 text-slate-200 hover:bg-slate-800 hover:text-amber-400 px-7 py-6 text-sm glass-card transition-all duration-300">
-              <a href="#areas">Conhecer Atuação</a>
+              <a href="#areas">Ver Tratamentos</a>
             </Button>
           </div>
         </div>
@@ -96,16 +96,16 @@ function Home() {
             </div>
             <div>
               <p className="text-amber-400 font-extrabold text-2xl tracking-tight">Vance & Associados</p>
-              <p className="text-slate-400 text-xs mt-1.5 font-medium tracking-widest uppercase">SOCIEDADE DE ADVOGADOS • OAB/SP 184.920</p>
+              <p className="text-slate-400 text-xs mt-1.5 font-medium tracking-widest uppercase">CLÍNICA DE ESTÉTICA AVANÇADA • CRM/SP 000.000</p>
             </div>
             <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-800/80 text-left">
               <div className="bg-slate-950/80 p-4 rounded-2xl border border-amber-500/20 shadow-inner">
-                <p className="text-amber-400 font-extrabold text-2xl">18+ Anos</p>
-                <p className="text-slate-400 text-xs mt-1 font-medium">de Prática Jurídica</p>
+                <p className="text-amber-400 font-extrabold text-2xl">10+ Anos</p>
+                <p className="text-slate-400 text-xs mt-1 font-medium">de Experiência</p>
               </div>
               <div className="bg-slate-950/80 p-4 rounded-2xl border border-amber-500/20 shadow-inner">
-                <p className="text-amber-400 font-extrabold text-2xl">98.4%</p>
-                <p className="text-slate-400 text-xs mt-1 font-medium">Éxito Contencioso</p>
+                <p className="text-amber-400 font-extrabold text-2xl">99.9%</p>
+                <p className="text-slate-400 text-xs mt-1 font-medium">Clientes Satisfeitos</p>
               </div>
             </div>
           </div>
@@ -121,12 +121,12 @@ function Home() {
                 <Award className="w-7 h-7" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-slate-100">Dr. Alexandre Vance</h3>
-                <p className="text-amber-400 text-xs font-semibold">Sócio-Fundador | OAB/SP 184.920</p>
+                <h3 className="text-xl font-bold text-slate-100">Dra. Helena Lumina</h3>
+                <p className="text-amber-400 text-xs font-semibold">Diretora Clínica | CRM/SP 000.000</p>
               </div>
             </div>
             <p className="text-slate-300 text-sm leading-relaxed">
-              Mestre em Direito Processual Civil pela USP, atuando há quase duas décadas na solução de conflitos patrimoniais e defesa corporativa para grandes empresas e famílias.
+              Especialista em dermatologia estética e procedimentos minimamente invasivos, dedicada a realçar a autoestima com segurança e naturalidade.
             </p>
             <div className="space-y-3 pt-2">
               <div className="flex items-center gap-3 text-slate-200 text-xs">
