@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { createFileRoute } from '@tanstack/react-router';
 import { Button } from '@/components/ui/button';
-import { Phone, MapPin, Clock, Star, CheckCircle2, ShieldCheck, Scale, Gavel, Briefcase, Award, FileText, Building2, Calendar, Send, Menu, X } from 'lucide-react';
+import { Phone, MapPin, Clock, Star, CheckCircle2, ShieldCheck, Scale, Gavel, Briefcase, Award, FileText, Building2, Calendar, Send, Menu, X, ChevronDown, HelpCircle, MessageSquare } from 'lucide-react';
 
 export const Route = createFileRoute('/')({
   component: Home,
@@ -10,6 +10,14 @@ export const Route = createFileRoute('/')({
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  const faqs = [
+    { question: 'Como funciona a primeira consulta jurídica?', answer: 'Realizamos uma análise preliminar sigilosa do seu caso, onde identificamos as opções cabíveis, estimativa de prazos e honorários de forma clara.' },
+    { question: 'O escritório atende demandas fora de São Paulo?', answer: 'Sim. Atuamos em âmbito nacional com processos 100% digitais e representação nos Tribunais Superiores em Brasília.' },
+    { question: 'Quais os documentos necessários para iniciar o atendimento?', answer: 'Para a primeira reunião, recomendamos RG/CPF ou CNPJ, contrato social se aplicável, e documentos preliminares do litígio ou dúvida.' },
+    { question: 'Como é garantido o sigilo das informações prestadas?', answer: 'Todas as comunicações são protegidas pelo sigilo profissional da OAB e por acordos de confidencialidade (NDA) desde o primeiro contato.' },
+  ];
 
   const practiceAreas = [
     { title: 'Direito Civil & Família', desc: 'Planejamento sucessório, inventários, litígios patrimoniais e contratos de alta complexidade.' },
@@ -215,6 +223,38 @@ function Home() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="py-20 max-w-4xl mx-auto px-4">
+        <div className="text-center mb-10 space-y-2">
+          <span className="text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full">Dúvidas Frequentes</span>
+          <h2 className="text-3xl font-bold text-slate-100 flex items-center justify-center gap-2">
+            <HelpCircle className="w-7 h-7 text-amber-400 inline-block" /> Perguntas Frequentes
+          </h2>
+          <p className="text-slate-400 text-sm">Respostas para as principais dúvidas sobre nossa atuação jurídica.</p>
+        </div>
+        <div className="space-y-3">
+          {faqs.map((faq, index) => {
+            const isOpen = activeFaq === index;
+            return (
+              <div key={index} className="border border-slate-800 rounded-xl bg-slate-900/80 overflow-hidden transition-all duration-200">
+                <button
+                  onClick={() => setActiveFaq(isOpen ? null : index)}
+                  className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 hover:bg-slate-800/50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-200 text-sm sm:text-base">{faq.question}</span>
+                  <ChevronDown className={`w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isOpen && (
+                  <div className="px-4 pb-5 pt-1 sm:px-5 text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/60 bg-slate-950/40">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
       {/* Localização */}
       <section id="mapa" className="py-20 max-w-6xl mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 items-start">
@@ -291,6 +331,18 @@ function Home() {
           )}
         </div>
       </section>
+
+      {/* Floating WhatsApp Action */}
+      <a
+        href="https://wa.me/5511988887777"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Atendimento via WhatsApp"
+        className="fixed bottom-6 right-6 z-50 bg-emerald-600 hover:bg-emerald-500 text-white p-3.5 rounded-full shadow-2xl flex items-center gap-2 font-semibold text-xs transition-all hover:scale-105 group border border-emerald-400/30"
+      >
+        <MessageSquare className="w-5 h-5 fill-current" />
+        <span className="hidden sm:inline font-medium">Atendimento Expresso</span>
+      </a>
 
       <footer className="py-10 text-center text-xs text-slate-500 bg-slate-950 border-t border-slate-900">
         <p>© {new Date().getFullYear()} Vance & Associados Advocacia • OAB/SP 184.920. Todos os direitos reservados.</p>
