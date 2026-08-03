@@ -41,16 +41,16 @@ function Home() {
             <span className="text-slate-100">Vance & Associados <span className="text-xs font-normal text-amber-400 block -mt-1 tracking-wider uppercase">Advocacia & Consultoria</span></span>
           </div>
           <nav className="hidden md:flex gap-6 text-sm font-medium text-slate-300">
-            <a href="#sobre" className="hover:text-amber-400 transition-colors">O Escritório</a>
-            <a href="#areas" className="hover:text-amber-400 transition-colors">Áreas de Atuação</a>
-            <a href="#diferenciais" className="hover:text-amber-400 transition-colors">Diferenciais</a>
-            <a href="#depoimentos" className="hover:text-amber-400 transition-colors">Avaliações</a>
-            <a href="#contato" className="hover:text-amber-400 transition-colors">Contato</a>
+            <a href="#sobre" className="hover:text-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-1.5 py-0.5 transition-colors">O Escritório</a>
+            <a href="#areas" className="hover:text-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-1.5 py-0.5 transition-colors">Áreas de Atuação</a>
+            <a href="#diferenciais" className="hover:text-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-1.5 py-0.5 transition-colors">Diferenciais</a>
+            <a href="#depoimentos" className="hover:text-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-1.5 py-0.5 transition-colors">Avaliações</a>
+            <a href="#contato" className="hover:text-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-1.5 py-0.5 transition-colors">Contato</a>
           </nav>
-          <Button asChild size="sm" className="hidden md:inline-flex bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold rounded-md px-5 shadow-md">
+          <Button asChild size="sm" className="hidden md:inline-flex bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold rounded-md px-5 shadow-md transition-all active:scale-95 focus-visible:ring-2 focus-visible:ring-amber-400">
             <a href="#contato">Agendar Consulta Jurídica</a>
           </Button>
-          <button className="md:hidden p-1 text-slate-200" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu">
+          <button className="md:hidden p-2.5 rounded-lg hover:bg-slate-800 text-slate-200 min-w-[44px] min-h-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu de Navegação">
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -88,24 +88,24 @@ function Home() {
             </Button>
           </div>
         </div>
-        <div className="relative group preserve-3d">
-          <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/40 via-amber-600/20 to-amber-400/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition duration-700"></div>
-          <div className="relative glass-card rounded-2xl p-8 text-center shadow-2xl space-y-4 [transform:rotateY(-6deg)_rotateX(6deg)] hover:[transform:rotateY(0deg)_rotateX(0deg)] transition-all duration-500">
-            <div className="w-20 h-20 mx-auto rounded-full bg-amber-500/10 border border-amber-500/40 flex items-center justify-center text-amber-400 shadow-[0_0_25px_rgba(245,158,11,0.25)] [transform:translateZ(20px)]">
+        <div className="relative group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/30 via-amber-600/15 to-amber-400/30 rounded-2xl blur-lg opacity-50 group-hover:opacity-80 transition duration-500"></div>
+          <div className="relative glass-card rounded-2xl p-8 text-center shadow-2xl space-y-5 border border-slate-800/90">
+            <div className="w-20 h-20 mx-auto rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-[0_0_25px_rgba(245,158,11,0.2)]">
               <Scale className="w-10 h-10" />
             </div>
-            <div className="[transform:translateZ(15px)]">
-              <p className="text-amber-400 font-bold text-xl">Vance & Associados</p>
-              <p className="text-slate-400 text-xs mt-1 font-medium tracking-wide">SOCIEDADE DE ADVOGADOS • OAB/SP 184.920</p>
+            <div>
+              <p className="text-amber-400 font-bold text-xl tracking-tight">Vance & Associados</p>
+              <p className="text-slate-400 text-xs mt-1 font-medium tracking-wider uppercase">SOCIEDADE DE ADVOGADOS • OAB/SP 184.920</p>
             </div>
-            <div className="grid grid-cols-2 gap-3 pt-4 border-t border-slate-800/80 text-left [transform:translateZ(10px)]">
-              <div className="bg-slate-950/70 p-3.5 rounded-lg border border-slate-800 shadow-inner">
-                <p className="text-amber-400 font-bold text-lg">18+ Anos</p>
-                <p className="text-slate-400 text-xs">de Prática Jurídica</p>
+            <div className="grid grid-cols-2 gap-3 pt-4 border-t border-slate-800/80 text-left">
+              <div className="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800">
+                <p className="text-amber-400 font-bold text-xl">18+ Anos</p>
+                <p className="text-slate-400 text-xs mt-0.5">de Prática Jurídica</p>
               </div>
-              <div className="bg-slate-950/70 p-3.5 rounded-lg border border-slate-800 shadow-inner">
-                <p className="text-amber-400 font-bold text-lg">98.4%</p>
-                <p className="text-slate-400 text-xs">Éxito Contencioso</p>
+              <div className="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800">
+                <p className="text-amber-400 font-bold text-xl">98.4%</p>
+                <p className="text-slate-400 text-xs mt-0.5">Éxito Contencioso</p>
               </div>
             </div>
           </div>
@@ -166,37 +166,37 @@ function Home() {
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-100">Áreas de Atuação Jurídica</h2>
           <p className="text-slate-400 text-sm max-w-xl mx-auto">Soluções jurídicas preventivas, consultivas e litigiosas sob medida.</p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 perspective-1000">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {practiceAreas.map((area, i) => (
-            <div key={i} className="glass-card card-3d p-6 rounded-xl space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm mb-4 shadow-[0_0_10px_rgba(245,158,11,0.15)] [transform:translateZ(15px)]">
+            <div key={i} className="glass-card card-3d p-6 rounded-xl space-y-3 border border-slate-800/80">
+              <div className="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm mb-4 shadow-[0_0_10px_rgba(245,158,11,0.15)]">
                 0{i + 1}
               </div>
-              <h3 className="font-bold text-slate-100 text-lg [transform:translateZ(10px)]">{area.title}</h3>
-              <p className="text-slate-400 text-xs leading-relaxed [transform:translateZ(5px)]">{area.desc}</p>
+              <h3 className="font-bold text-slate-100 text-lg">{area.title}</h3>
+              <p className="text-slate-300 text-xs leading-relaxed">{area.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Diferenciais */}
-      <section id="diferenciais" className="py-16 bg-slate-900/40 border-y border-slate-800 perspective-1000">
+      <section id="diferenciais" className="py-16 bg-slate-900/40 border-y border-slate-800">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-6 text-center">
-            <div className="p-6 glass-card card-3d rounded-xl space-y-2">
-              <Building2 className="w-8 h-8 text-amber-400 mx-auto [transform:translateZ(10px)]" />
-              <h4 className="font-bold text-slate-100 [transform:translateZ(8px)]">Estrutura Corporativa</h4>
-              <p className="text-xs text-slate-400 [transform:translateZ(5px)]">Salas de reunião privativas no coração do centro financeiro de SP.</p>
+            <div className="p-6 glass-card card-3d rounded-xl space-y-2.5 border border-slate-800/80">
+              <Building2 className="w-8 h-8 text-amber-400 mx-auto" />
+              <h3 className="font-bold text-slate-100 text-base">Estrutura Corporativa</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">Salas de reunião privativas no coração do centro financeiro de SP.</p>
             </div>
-            <div className="p-6 glass-card card-3d rounded-xl space-y-2">
-              <Gavel className="w-8 h-8 text-amber-400 mx-auto [transform:translateZ(10px)]" />
-              <h4 className="font-bold text-slate-100 [transform:translateZ(8px)]">Contencioso de Alto Impacto</h4>
-              <p className="text-xs text-slate-400 [transform:translateZ(5px)]">Atuação incisiva na defesa de teses jurídicas nos mais altos tribunais.</p>
+            <div className="p-6 glass-card card-3d rounded-xl space-y-2.5 border border-slate-800/80">
+              <Gavel className="w-8 h-8 text-amber-400 mx-auto" />
+              <h3 className="font-bold text-slate-100 text-base">Contencioso de Alto Impacto</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">Atuação incisiva na defesa de teses jurídicas nos mais altos tribunais.</p>
             </div>
-            <div className="p-6 glass-card card-3d rounded-xl space-y-2">
-              <FileText className="w-8 h-8 text-amber-400 mx-auto [transform:translateZ(10px)]" />
-              <h4 className="font-bold text-slate-100 [transform:translateZ(8px)]">Consultoria Preventiva</h4>
-              <p className="text-xs text-slate-400 [transform:translateZ(5px)]">Análise minuciosa de riscos para evitar litígios desnecessários.</p>
+            <div className="p-6 glass-card card-3d rounded-xl space-y-2.5 border border-slate-800/80">
+              <FileText className="w-8 h-8 text-amber-400 mx-auto" />
+              <h3 className="font-bold text-slate-100 text-base">Consultoria Preventiva</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">Análise minuciosa de riscos para evitar litígios desnecessários.</p>
             </div>
           </div>
         </div>
@@ -209,14 +209,14 @@ function Home() {
             <span className="text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full">Reconhecimento</span>
             <h2 className="text-3xl font-bold text-slate-100">Depoimentos dos Nossos Clientes</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto perspective-1000">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {testimonials.map((t, i) => (
-              <div key={i} className="p-6 rounded-xl glass-card card-3d space-y-3">
-                <div className="flex text-amber-400 gap-1 [transform:translateZ(10px)]">
+              <div key={i} className="p-6 rounded-xl glass-card card-3d space-y-3 border border-slate-800/80">
+                <div className="flex text-amber-400 gap-1" aria-label="Avaliação 5 estrelas">
                   {[...Array(5)].map((_, idx) => <Star key={idx} className="w-4 h-4 fill-amber-400" />)}
                 </div>
-                <p className="text-slate-300 italic text-sm leading-relaxed [transform:translateZ(5px)]">"{t.text}"</p>
-                <p className="font-bold text-xs text-amber-400 [transform:translateZ(8px)]">— {t.name}</p>
+                <p className="text-slate-200 italic text-sm leading-relaxed">"{t.text}"</p>
+                <p className="font-bold text-xs text-amber-400">— {t.name}</p>
               </div>
             ))}
           </div>
@@ -239,7 +239,8 @@ function Home() {
               <div key={index} className="border border-slate-800 rounded-xl bg-slate-900/80 overflow-hidden transition-all duration-200">
                 <button
                   onClick={() => setActiveFaq(isOpen ? null : index)}
-                  className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 hover:bg-slate-800/50 transition-colors"
+                  className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 hover:bg-slate-800/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-inset min-h-[48px]"
+                  aria-expanded={isOpen}
                 >
                   <span className="font-semibold text-slate-200 text-sm sm:text-base">{faq.question}</span>
                   <ChevronDown className={`w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
@@ -302,30 +303,30 @@ function Home() {
           ) : (
             <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-4 text-left glass-card p-8 rounded-2xl text-slate-200 shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-slate-800">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">Nome Completo</label>
-                <input type="text" required placeholder="Ex: Dr. Carlos Eduardo" className="w-full p-3 border border-slate-800 rounded-md text-sm bg-slate-950/80 focus:outline-none focus:border-amber-500 transition-colors shadow-inner" />
+                <label htmlFor="nome-input" className="block text-xs font-semibold text-slate-300 mb-1">Nome Completo</label>
+                <input id="nome-input" type="text" required placeholder="Ex: Dr. Carlos Eduardo" className="w-full p-3 border border-slate-800 rounded-lg text-sm bg-slate-950/90 text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors" />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">Telefone / WhatsApp</label>
-                <input type="tel" required placeholder="(11) 99999-9999" className="w-full p-3 border border-slate-800 rounded-md text-sm bg-slate-950/80 focus:outline-none focus:border-amber-500 transition-colors shadow-inner" />
+                <label htmlFor="tel-input" className="block text-xs font-semibold text-slate-300 mb-1">Telefone / WhatsApp</label>
+                <input id="tel-input" type="tel" required placeholder="(11) 99999-9999" className="w-full p-3 border border-slate-800 rounded-lg text-sm bg-slate-950/90 text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors" />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">Área de Interesse Jurídico</label>
-                <select className="w-full p-3 border border-slate-800 rounded-md text-sm bg-slate-950/80 text-slate-200 focus:outline-none focus:border-amber-500 transition-colors shadow-inner">
-                  <option value="">Selecione...</option>
+                <label htmlFor="area-select" className="block text-xs font-semibold text-slate-300 mb-1">Área de Interesse Jurídico</label>
+                <select id="area-select" required className="w-full p-3 border border-slate-800 rounded-lg text-sm bg-slate-950/90 text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors">
+                  <option value="">Selecione a área...</option>
                   <option value="civil">Direito Civil & Família / Inventários</option>
                   <option value="empresarial">Direito Empresarial & Compliance</option>
                   <option value="trabalhista">Direito Trabalhista Patronal</option>
                   <option value="tributario">Direito Tributário & Fiscal</option>
-                  <option value="outros">Outras Demandas Especiais</option>
+                  <option value="outro">Outras Demandas Estratégicas</option>
                 </select>
               </div>
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">Descrição Resumida do Caso</label>
-                <textarea rows={3} placeholder="Descreva sucintamente sua dúvida ou necessidade..." className="w-full p-3 border border-slate-800 rounded-md text-sm bg-slate-950/80 text-slate-200 focus:outline-none focus:border-amber-500 transition-colors shadow-inner" />
+                <label htmlFor="mensagem-input" className="block text-xs font-semibold text-slate-300 mb-1">Resumo da Demanda (Sigilo Garantido)</label>
+                <textarea id="mensagem-input" rows={3} placeholder="Descreva brevemente sua necessidade..." className="w-full p-3 border border-slate-800 rounded-lg text-sm bg-slate-950/90 text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors resize-none"></textarea>
               </div>
-              <Button type="submit" className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3.5 rounded-md flex items-center justify-center gap-2 text-sm mt-2 btn-3d">
-                <Send className="w-4 h-4" /> Enviar Mensagem Sigilosa
+              <Button type="submit" className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3.5 rounded-lg text-sm transition-all shadow-lg active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer">
+                <Send className="w-4 h-4" /> Enviar Solicitação Confidencial
               </Button>
             </form>
           )}
