@@ -20,10 +20,10 @@ function Home() {
   ];
 
   const practiceAreas = [
-    { title: 'Direito Civil & Família', desc: 'Planejamento sucessório, inventários, litígios patrimoniais e contratos de alta complexidade.' },
-    { title: 'Direito Empresarial & Compliance', desc: 'Assessoria jurídica contínua, governança corporativa, contratos sociais e fusões.' },
-    { title: 'Direito Trabalhista Patronal', desc: 'Defesa e prevenção de riscos passivos para empresas e gestão preventiva de contencioso.' },
-    { title: 'Direito Tributário & Fiscal', desc: 'Planejamento tributário estratégico, contencioso administrativo e recuperação de créditos.' },
+    { title: 'Direito Civil & Família', desc: 'Planejamento sucessório, inventários, litígios patrimoniais e contratos de alta complexidade.', icon: <Scale className="w-6 h-6" /> },
+    { title: 'Direito Empresarial', desc: 'Assessoria jurídica contínua, governança corporativa, contratos sociais e fusões.', icon: <Building2 className="w-6 h-6" /> },
+    { title: 'Trabalhista Patronal', desc: 'Defesa e prevenção de riscos passivos para empresas e gestão preventiva de contencioso.', icon: <Briefcase className="w-6 h-6" /> },
+    { title: 'Direito Tributário', desc: 'Planejamento tributário estratégico, contencioso administrativo e recuperação de créditos.', icon: <FileText className="w-6 h-6" /> },
   ];
 
   const testimonials = [
@@ -32,80 +32,86 @@ function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
-        <div className="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
-          <div className="flex items-center gap-2.5 font-bold text-xl text-amber-400 tracking-tight">
-            <Scale className="w-7 h-7 text-amber-500" />
-            <span className="text-slate-100">Lumina Estética <span className="text-xs font-normal text-amber-400 block -mt-1 tracking-wider uppercase">Beleza & Bem-Estar</span></span>
+      <header className="fixed top-0 w-full z-50 border-b border-white/5 bg-background/80 backdrop-blur-xl">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-primary flex items-center justify-center rounded-lg shadow-lg shadow-primary/20">
+              <Scale className="w-6 h-6 text-background" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-lg font-bold tracking-tight leading-none">VANCE & ASSOC.</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium">Advocacia Boutique</span>
+            </div>
           </div>
-          <nav className="hidden md:flex gap-6 text-sm font-medium text-slate-300">
-            <a href="#sobre" className="hover:text-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-1.5 py-0.5 transition-colors">O Escritório</a>
-            <a href="#areas" className="hover:text-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-1.5 py-0.5 transition-colors">Áreas de Atuação</a>
-            <a href="#diferenciais" className="hover:text-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-1.5 py-0.5 transition-colors">Diferenciais</a>
-            <a href="#depoimentos" className="hover:text-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-1.5 py-0.5 transition-colors">Avaliações</a>
-            <a href="#contato" className="hover:text-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded px-1.5 py-0.5 transition-colors">Contato</a>
+          
+          <nav className="hidden lg:flex items-center gap-10">
+            {['Sobre', 'Áreas', 'Diferenciais', 'Depoimentos'].map((item) => (
+              <a key={item} href={`#${item.toLowerCase()}`} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{item}</a>
+            ))}
+            <Button asChild className="rounded-full px-6 bg-primary text-primary-foreground hover:opacity-90">
+              <a href="#contato">Agendar Consulta</a>
+            </Button>
           </nav>
-          <Button asChild size="sm" className="hidden md:inline-flex bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold rounded-md px-5 shadow-md transition-all active:scale-95 focus-visible:ring-2 focus-visible:ring-amber-400">
-            <a href="#contato">Agendar Avaliação</a>
-          </Button>
-          <button className="md:hidden p-2.5 rounded-lg hover:bg-slate-800 text-slate-200 min-w-[44px] min-h-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu de Navegação">
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+
+          <button className="lg:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
-        {isMenuOpen && (
-          <div className="md:hidden p-4 bg-slate-900 border-t border-slate-800 flex flex-col gap-3 text-sm font-medium text-slate-200">
-            <a href="#sobre" onClick={() => setIsMenuOpen(false)}>O Escritório</a>
-            <a href="#areas" onClick={() => setIsMenuOpen(false)}>Áreas de Atuação</a>
-            <a href="#diferenciais" onClick={() => setIsMenuOpen(false)}>Diferenciais</a>
-            <a href="#depoimentos" onClick={() => setIsMenuOpen(false)}>Avaliações</a>
-            <a href="#contato" onClick={() => setIsMenuOpen(false)}>Contato</a>
-          </div>
-        )}
       </header>
 
-      {/* Hero */}
-      <section className="relative py-24 px-4 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center animate-in fade-in slide-in-from-bottom-4 duration-1000">
-        <div className="space-y-6">
-          <span className="inline-flex items-center gap-2 text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 px-4 py-1.5 rounded-full shadow-[0_0_20px_rgba(245,158,11,0.25)]">
-            <Gavel className="w-4 h-4 text-amber-400" /> Advocacia de Alta Performance & Consultoria
-          </span>
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-100 leading-[1.15] tracking-tight">
-            Beleza Autêntica & Tratamentos de <span className="gold-gradient-text">Excelência</span>.
-          </h1>
-          <p className="text-slate-300 leading-relaxed text-base sm:text-lg">
-            Realçamos sua beleza natural com tecnologia de ponta, protocolos personalizados e um ambiente de total relaxamento e cuidado.
-          </p>
-          <div className="flex flex-wrap gap-4 pt-3">
-            <Button asChild className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-lg px-7 py-6 text-sm btn-3d shadow-lg shadow-amber-500/20">
-              <a href="#contato" className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" /> Agendar Avaliação
-              </a>
-            </Button>
-            <Button variant="outline" asChild className="rounded-lg border-amber-500/20 bg-slate-900/90 text-slate-200 hover:bg-slate-800 hover:text-amber-400 px-7 py-6 text-sm glass-card transition-all duration-300">
-              <a href="#areas">Ver Tratamentos</a>
-            </Button>
-          </div>
+      {/* Hero Section - Redesigned for Impact */}
+      <section className="relative pt-44 pb-32 overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-20">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/30 blur-[120px] rounded-full" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/20 blur-[120px] rounded-full" />
         </div>
-        <div className="relative group">
-          <div className="absolute -inset-1 bg-gradient-to-tr from-amber-500/40 via-amber-600/20 to-amber-400/40 rounded-3xl blur-xl opacity-60 group-hover:opacity-90 transition duration-500"></div>
-          <div className="relative glass-card rounded-3xl p-8 sm:p-10 text-center shadow-2xl space-y-6 border border-amber-500/20 bg-slate-900/90">
-            <div className="w-24 h-24 mx-auto rounded-2xl bg-amber-500/10 border border-amber-500/40 flex items-center justify-center text-amber-400 shadow-[0_0_30px_rgba(245,158,11,0.25)] group-hover:scale-105 transition-transform">
-              <Scale className="w-12 h-12" />
+
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-16 items-center">
+          <div className="lg:col-span-7 space-y-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-primary">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              Excelência Jurídica em Cada Detalhe
             </div>
-            <div>
-              <p className="text-amber-400 font-extrabold text-2xl tracking-tight">Vance & Associados</p>
-              <p className="text-slate-400 text-xs mt-1.5 font-medium tracking-widest uppercase">CLÍNICA DE ESTÉTICA AVANÇADA • CRM/SP 000.000</p>
+            <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight">
+              Estratégia Jurídica de <span className="text-primary">Alto Impacto</span> para Negócios.
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+              Atuação boutique focada em resultados extraordinários. Unimos o rigor técnico tradicional à agilidade do mercado moderno.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="rounded-full px-8 h-14 text-base font-semibold">
+                Falar com um Especialista
+              </Button>
+              <Button variant="outline" size="lg" className="rounded-full px-8 h-14 text-base font-semibold border-white/10 hover:bg-white/5">
+                Conhecer o Escritório
+              </Button>
             </div>
-            <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-800/80 text-left">
-              <div className="bg-slate-950/80 p-4 rounded-2xl border border-amber-500/20 shadow-inner">
-                <p className="text-amber-400 font-extrabold text-2xl">10+ Anos</p>
-                <p className="text-slate-400 text-xs mt-1 font-medium">de Experiência</p>
-              </div>
-              <div className="bg-slate-950/80 p-4 rounded-2xl border border-amber-500/20 shadow-inner">
-                <p className="text-amber-400 font-extrabold text-2xl">99.9%</p>
-                <p className="text-slate-400 text-xs mt-1 font-medium">Clientes Satisfeitos</p>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="glass-card p-10 rounded-3xl relative">
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
+              <div className="space-y-8">
+                <div className="flex justify-between items-end">
+                  <div className="space-y-1">
+                    <p className="text-4xl font-bold">15+</p>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground">Anos de Atuação</p>
+                  </div>
+                  <div className="w-px h-12 bg-white/10" />
+                  <div className="space-y-1 text-right">
+                    <p className="text-4xl font-bold">98%</p>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground">Êxito em Teses</p>
+                  </div>
+                </div>
+                <div className="p-6 rounded-2xl bg-white/5 border border-white/5 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-sm font-medium">Plantão Jurídico Ativo</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Nossa equipe está disponível para análises de urgência e consultoria estratégica imediata.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -159,23 +165,28 @@ function Home() {
         </div>
       </section>
 
-      {/* Áreas de Atuação */}
-      <section id="areas" className="py-20 max-w-6xl mx-auto px-4">
-        <div className="text-center mb-12 space-y-3">
-          <span className="text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full">Especialização</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-100">Áreas de Atuação Jurídica</h2>
-          <p className="text-slate-400 text-sm max-w-xl mx-auto">Soluções jurídicas preventivas, consultivas e litigiosas sob medida.</p>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {practiceAreas.map((area, i) => (
-            <div key={i} className="glass-card card-3d p-6 rounded-xl space-y-3 border border-slate-800/80">
-              <div className="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm mb-4 shadow-[0_0_10px_rgba(245,158,11,0.15)]">
-                0{i + 1}
-              </div>
-              <h3 className="font-bold text-slate-100 text-lg">{area.title}</h3>
-              <p className="text-slate-300 text-xs leading-relaxed">{area.desc}</p>
+      {/* Áreas de Atuação - Bento Grid Style */}
+      <section id="areas" className="py-32 bg-secondary/30">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="space-y-4">
+              <h2 className="text-4xl font-bold tracking-tight">Especialidades <span className="text-primary">Estratégicas</span></h2>
+              <p className="text-muted-foreground max-w-md">Soluções jurídicas personalizadas para demandas de alta complexidade.</p>
             </div>
-          ))}
+            <Button variant="link" className="text-primary p-0 h-auto font-bold">Ver todas as áreas →</Button>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {practiceAreas.map((area, i) => (
+              <div key={i} className={`glass-card p-8 rounded-3xl group ${i === 0 ? 'md:col-span-2' : ''}`}>
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-background transition-all duration-500">
+                  {area.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3">{area.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{area.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
