@@ -72,7 +72,7 @@ function Home() {
             <Gavel className="w-4 h-4 text-amber-400" /> Advocacia de Alta Performance & Consultoria
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-100 leading-tight tracking-tight">
-            Defesa Estratégica & Soluções Jurídicas de Excelência.
+            Defesa Estratégica & Soluções Jurídicas de <span className="gold-gradient-text">Excelência</span>.
           </h1>
           <p className="text-slate-300 leading-relaxed text-base">
             Protegendo patrimônios, empresas e direitos individuais com máxima dedicação ética, rigor técnico e foco em resultados resolutivos.
